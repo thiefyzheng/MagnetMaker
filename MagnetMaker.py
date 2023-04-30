@@ -20,7 +20,7 @@ def make_magnet_from_file(torrent_file) :
                       + 'xt=urn:btih:' + b32hash \
                       + '&dn=' + metadata[b'info'][b'name'].decode() \
                       + '&tr=' + metadata[b'announce'].decode() \
-                      + '&xl=' + str(metadata[b'info'][b'length'])
+                      + '&xl=' + str(metadata[b'info'].get(b'length', 0))
         return magnet_link
 
 # Run the loop every 1 second
